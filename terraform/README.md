@@ -1,120 +1,71 @@
-# DevOps IDWALL "By: Guilherme Tiosso"
+# Terraform
 
 ## Objective
 
-The main objective of this project, is provisioning entire stack of 2 environments, using IaC (Infrastructure as Code) and Best Pratices of **DevOps SRE (Site Reliability Engineer)**:
+Create a EC2 Instance on AWS with the following configurations:
 
-**Environments:**
-* **Terraform (IaC);**
-* **Kubernetes;**
+* **Key Pair** - To connect via ssh;
+* **Security Group** - To protect the environment;
+* **Docker** - Installed on EC2 Instance;
+* **Apache** - Running on Docker;
 
 
 
-_Instructions to deploy entire Stack on Docker (Compose)._
+**Security Group - Rules:**        
+* **Rule 1** - Permit all requests on port 80 and 443;
+* **Rule 1** - Permit only especifc _IP_ or _Range_ to connect on port 22;
+
+## Requirements
+
+You need a account on AWS previously created, with a user created on IAM (Access_Key and Secret_Key);
+
+You need the following packages installed on your machine or server: 
+
+1.  Git (To clone this project);
+2.  Terraform (To provisiong entire stack on AWS);
+3.  SSH (To generate public/private key and connect to EC2 Instance);
+
+## Deploy
+
+_Instructions to deploy entire Stack on AWS (Compose)._
 
 1.  Clone this repository to your machine:
 
         $ git clone https://github.com/quintoandar/hello-devops.git [PROJECT_FOLDER]
 
-2.  Inside of project folder, run the following command:
+2.  Create SSH Public and Private Keys **(OBS: Don't need to input a passphrase)**:
 
-        $ docker-compose -f compose/compose.yml up -d
-        or
-        $ docker-compose -f [PROJECT_FOLDER]/compose/compose.yml up -d
+        $ ssh-keygen
+
+3.  Inside of terraform folder, run the following commands:
+
+        $ terraform init
+
+        $ terraform plan
+
+4.  If "Plan" command returns "OK", than apply your environment:
+
+        $ terraform apply -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
         
-3.  Check if all containers are running:
 
-        $ docker ps
+**EXAMPLE**
 
-4.  Assuming that all containers are running, in your browser connect on web page:
+* **REGION:** - 'region=us-east-1'
 
-        http://SERVER_DOCKER_IP:8000
+* **ACCESS_KEY:** - 'access_key=AJIBJCWW36S67AUCUN6Q'
 
-5.  Put your favorite pudim flavour:
+* **SECRET_KEY:** - 'secret_key=2kPODSKApdoksapoDSDSksapDSADmbz2NrCfomlFzbK+/f'
 
-        Ex: milk
+* **PUBLIC_KEY:** - 'public_key=/root/.ssh/id_rsa.pub'
 
-6.  To check if database contain the data inputed on web page, do this:
+* **PRIVATE_KEY:** - 'private_key=/root/.ssh/id_rsa'
 
-        Connect on Mysql Container:
-        $ docker exec -it compose_mysql_1 bash
-
-        Connect on Mysql Database (Remember insert the password):
-        $ mysql -u hello -p hello
-
-        Check if data exist on table Messages:
-        $ SELECT * FROM Messages;
-
-# hello-devops
+* **SSH_SECURITY_CIDR_BLOCKS:** - 'ssh_security_cidr_blocks=["0.0.0.0/0"]'
 
 
-_Please read these instructions carefully._
 
-There are 2 applications in this project:
+5.  Access Apache (Docker) WebPage:
 
-* **hello-python** is a web page that contains a form; when the form is submitted, hello-python enqueues the message on a RabbitMQ queue.
-
-* **hello-node** is a worker that consumes the RabbitMQ queue and stores any message on a MySQL database.
-
-There's also a `create_database.sql` script, to help you prepare the MySQL database.
-
-Each application contains a short README file with more information.
-
-## Problem
-
-**Deploy this entire stack** in a way that _any message entered on the hello-python form is stored on a MySQL database by hello-node_.
-
-* **There are a few bugs in the code**, and you'll need to fix them to solve this exercise; you should not require any specific knowledge of either Python or NodeJS to solve these issues.
-
-* If you need to make any changes to help you debugging (such as adding logs or catching exceptions) we suggest you keep them so we can understand your thought proccess.
-
-* If you have some knowledge of Python or NodeJS development, feel free to implement or suggest _simple_ improvements to the applications to make them production-ready.
-
-## Solutions
-
-We'll accept _any_ of the following types of solution:
-
-* A script using a CLI, SDK, API or library that deploys the stack on a host running a modern Linux distribution _or_ on the AWS cloud.
-
-* A Docker Compose file _or_ another similar container orchestration solution that deploys the stack on a host running a modern Linux distribution _or_ on the AWS cloud.
-
-* A recipe using one or more configuration management tools (e.g. Terraform, Ansible, Chef, Puppet, CloudFormation, Vagrant, Packer, etc.) that deploys the stack on a host running a modern Linux distribution _or_ on the AWS cloud.
-
-**Important:** please **edit this README file** with step-by-step instructions on _how_ to deploy using your solution. Feel free to also include a short paragraph and/or a diagram explaining your solution.
-
-## Expectations
-
-When assessing this exercise, we will take the following points into consideration:
-
-* Whether the solution works or not
-* How _easy_ it is to deploy the solution
-* How _resilient_ it is (e.g. if the database takes a few more seconds to start than usual, does the system stop working and never recovers?)
-
-Suppose that a _junior_ developer (who has access to most common Linux distributions and an AWS account) will try to run your solution. Would he be able to install all requirements and run it easily? Would he be able to verify that it works? Should any problems arise (e.g. a package is missing), would he be able to identify and fix it?
-
-We don't expect a production-grade solution, but we expect you to show that you'd be able to deploy a production-grade distributed system given enough tools and time.
-
-## Submissions
-
-You should send us a [git patch](https://git-scm.com/docs/git-format-patch) file with your solution. To do so follow these steps:
-
-1.  Clone (do NOT fork) this repository to your machine:
-
-        $ git clone https://github.com/quintoandar/hello-devops.git
-
-2.  Implement your solution and comit your changes locally:
-
-        $ git commit -am "My solution"
-
-3.  Create a patch file for this repository:
-
-        $ git format-patch origin/master --stdout > result.patch
-
-4.  Email us the `result.patch` file.
-
-Please do **not** fork this repository and do **not** publish your solution online!
-
-## Contact
-
-Feel free to reach out if you have any questions! Also, we expect this problem to take some hours at most, but please do get in touch if you need more time to provide a good solution! It is far better than delivering something that does not work :)
+        http://AWS IP
+        https://AWS IP
 
