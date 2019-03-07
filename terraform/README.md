@@ -43,7 +43,7 @@ _Instructions to deploy entire Stack on AWS (Compose)._
 
         $ terraform init
 
-        $ terraform plan
+        $ terraform plan -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
 
 4.  If "Plan" command returns "OK", than apply your environment:
 
