@@ -1,0 +1,13 @@
+version: '3'
+services:
+  apache:
+    restart: "always"
+    image: httpd:2.4
+    volumes:
+     - "/tmp/files/httpd.conf:/usr/local/apache2/conf/httpd.conf"
+     - "/tmp/files/server.crt:/usr/local/apache2/conf/server.crt"
+     - "/tmp/files/server.key:/usr/local/apache2/conf/server.key"
+     - "/etc/localtime:/etc/localtime"
+    ports:
+     - "80:80"
+     - "443:443"
