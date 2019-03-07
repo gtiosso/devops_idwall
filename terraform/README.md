@@ -48,7 +48,15 @@ _Instructions to deploy entire Stack on AWS (Compose)._
 4.  If "Plan" command returns "OK", than apply your environment:
 
         $ terraform apply -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
+       
+5.  Access Apache (Docker) WebPage:
+
+        http://AWS IP
+        https://AWS IP
         
+6.  To destroy your environment:
+
+        terraform destroy -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
 
 **_OBS: The follwing parameters are required_**
 
@@ -65,15 +73,3 @@ _Instructions to deploy entire Stack on AWS (Compose)._
 * **PRIVATE_KEY:** - 'private_key=/root/.ssh/id_rsa'
 
 * **SSH_SECURITY_CIDR_BLOCKS:** - 'ssh_security_cidr_blocks=["0.0.0.0/0"]'
-
-
-
-5.  Access Apache (Docker) WebPage:
-
-        http://AWS IP
-        https://AWS IP
-        
-6.  To destroy your environment:
-
-        terraform destroy -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
-
