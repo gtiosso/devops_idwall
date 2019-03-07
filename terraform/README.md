@@ -70,4 +70,8 @@ _Instructions to deploy entire Stack on AWS (Compose)._
 
         http://AWS IP
         https://AWS IP
+        
+6.  To destroy your environment:
+
+        terraform destroy -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
 
