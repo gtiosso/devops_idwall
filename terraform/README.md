@@ -25,13 +25,15 @@ You need the following packages installed on your machine or server:
 2.  Terraform (To provisiong entire stack on AWS);
 3.  SSH (To generate public/private key and connect to EC2 Instance);
 
+You can download Terraform [here.](https://www.terraform.io/downloads.html)
+
 ## Deploy
 
 _Instructions to deploy entire Stack on AWS (Compose)._
 
 1.  Clone this repository to your machine:
 
-        $ git clone https://github.com/quintoandar/hello-devops.git [PROJECT_FOLDER]
+        $ git clone https://github.com/gtiosso/devops_idwall.git [PROJECT_FOLDER]
 
 2.  Create SSH Public and Private Keys **(OBS: Don't need to input a passphrase)**:
 
