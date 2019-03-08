@@ -6,10 +6,10 @@ O principal objetivo deste projeto é prover uma solução para os desafios gera
 
 Prover 2 ambientes, utilizando IaC (Infrastructure as Code) e as melhores práticas em **DevOps SRE (Site Reliability Engineer)**:
 
-**Ambiente:**
+**Ambientes:**
 * **[Terraform (IaC)](terraform);**
 * **[Kubernetes](kubernetes);**
 
-## Desafio
+## Desafios
 
 [Link](https://github.com/idwall/desafios-devops) para o desafio proposto no processo seletivo para a vaga de DevOps.
