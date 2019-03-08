@@ -64,13 +64,21 @@ _Instruções para o procedimento de deploy/provisionamento do ambiente AWS._
 4.  Após a execução do "Plan" e o resultado for "OK", aplique o provisionamento:
 
         $ terraform apply -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
-       
-5.  Valide a aplicação (Apache) rodando no Docker:
 
-        http://AWS IP
-        https://AWS IP
+5.  Resultado esperado após "Apply":
+
+        Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
         
-6.  Para destruir o ambiente, execute o comando abaixo:
+        Outputs:
+        
+        instance_1 = AWK_PUBLIC_IP
+
+6.  Valide a aplicação (Apache) rodando no Docker:
+
+        http://AWK_PUBLIC_IP
+        https://AWK_PUBLIC_IP
+        
+7.  Para destruir o ambiente, execute o comando abaixo:
 
         terraform destroy -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
 
