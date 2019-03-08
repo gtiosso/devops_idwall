@@ -40,8 +40,14 @@ _Instruções para o procedimento de Deploy._
 4.  Se ambos estiverem com o status "Running", basta testar a resposta da aplicação pela url:
 
         http://IP_DO_NODE_KUBERNETES
+        ou
+        http://teste-devops.local
         
 6.  Para destruir o ambiente, execute o seguinte comando:
 
         $ kubectl delete -f main.yaml
 
+**OBS -** Para acessar a pagina de teste da aplicação via domínio, basta configurar o arquivo hosts da maquina de origem do teste como o **exemplo** a seguir:
+*  192.168.1.100 teste-devops.local
+
+_192.168.1.100 - IP do Node do Kubernetes_
