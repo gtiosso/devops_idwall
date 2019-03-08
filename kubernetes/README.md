@@ -39,8 +39,6 @@ _Instruções para o procedimento de Deploy._
 
 4.  Se ambos estiverem com o status "Running", basta testar a resposta da aplicação pela url:
 
-        http://IP_DO_NODE_KUBERNETES
-        ou
         http://teste-devops.local
         
 6.  Para destruir o ambiente, execute o seguinte comando:
