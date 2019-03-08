@@ -1,6 +1,6 @@
 # Terraform
 
-## Objective
+## Objetivo
 
 Criar uma Instância EC2 na AWS, com as seguintes configurações:
 
