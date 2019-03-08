@@ -27,7 +27,7 @@ _Instruções para o procedimento de Deploy._
 
         $ git clone https://github.com/gtiosso/devops_idwall.git [PROJECT_FOLDER]
 
-2.  Dentro da pasta do projeto, execute o seguinte comando para efetuar o deploy:
+2.  Dentro do diretório kubernetes, execute o seguinte comando para efetuar o deploy:
 
         $ kubectl apply -f main.yaml
 
