@@ -18,7 +18,7 @@ Você precisará dos seguintes pacotes para realizar o processo de deploy:
 2.  Kubectl (Para realizar o deploy de toda a Stack);
 3.  Cluster Kubernetes (Para orquestrar e gerenciar todos os recursos criados);
 
-## OBS
+**Observações**
 
 Para acessar a pagina de teste da aplicação via domínio, basta configurar o arquivo hosts da maquina de origem do teste como o **exemplo** a seguir:
 
