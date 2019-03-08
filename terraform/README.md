@@ -71,12 +71,12 @@ _Instruções para o procedimento de deploy/provisionamento do ambiente AWS._
         
         Outputs:
         
-        instance_1 = AWK_PUBLIC_IP
+        instance_1 = INSTANCE_PUBLIC_IP
 
 6.  Valide a aplicação (Apache) rodando no Docker:
 
-        http://AWK_PUBLIC_IP
-        https://AWK_PUBLIC_IP
+        http://INSTANCE_PUBLIC_IP
+        https://INSTANCE_PUBLIC_IP
         
 7.  Para destruir o ambiente, execute o comando abaixo:
 
