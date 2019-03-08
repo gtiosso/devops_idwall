@@ -5,7 +5,7 @@
 Provisionar uma aplicação em um ambiente kubernetes, com as seguintes características:
 
 * Imagem customizada: [gtiosso1/devops-idwall:latest](https://hub.docker.com/r/gtiosso1/devops-idwall)
-* Manifestos de recursos kubernetes para rodar a aplicação (deployments, services, ingress-controller, ingress, configmap...) [main.yaml](https://www.terraform.io/downloads.html) 
+* Manifestos de recursos kubernetes para rodar a aplicação (deployments, services, ingress-controller, ingress, configmap...) [main.yaml](main.yaml) 
 * Procedimento para deploy do ambiente.
 * Validação dos Pods;
 * Acesso a URL da Aplicação via Ingress;
