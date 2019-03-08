@@ -25,6 +25,24 @@ Você precisará também dos seguintes pacotes instalados na sua máquina/servid
 
 Você pode realizar o download do Terraform [Aqui.](https://www.terraform.io/downloads.html)
 
+**Observações** 
+
+Os parâmetros abaixo são necessários para o funcionamento correto do deploy
+
+**EXEMPLO**
+
+* **REGION:** - 'region=us-east-1'
+
+* **ACCESS_KEY:** - 'access_key=AJIBJCWW36S67AUCUN6Q'
+
+* **SECRET_KEY:** - 'secret_key=2kPODSKApdoksapoDSDSksapDSADmbz2NrCfomlFzbK+/f'
+
+* **PUBLIC_KEY:** - 'public_key=/root/.ssh/id_rsa.pub'
+
+* **PRIVATE_KEY:** - 'private_key=/root/.ssh/id_rsa'
+
+* **SSH_SECURITY_CIDR_BLOCKS:** - 'ssh_security_cidr_blocks=["0.0.0.0/0"]'
+
 ## Deploy
 
 _Instruções para o procedimento de deploy/provisionamento do ambiente AWS._
@@ -56,18 +74,3 @@ _Instruções para o procedimento de deploy/provisionamento do ambiente AWS._
 
         terraform destroy -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
 
-**_OBS: Os parâmetros abaixo são necessários para o funcionamento correto do deploy_**
-
-**EXEMPLO**
-
-* **REGION:** - 'region=us-east-1'
-
-* **ACCESS_KEY:** - 'access_key=AJIBJCWW36S67AUCUN6Q'
-
-* **SECRET_KEY:** - 'secret_key=2kPODSKApdoksapoDSDSksapDSADmbz2NrCfomlFzbK+/f'
-
-* **PUBLIC_KEY:** - 'public_key=/root/.ssh/id_rsa.pub'
-
-* **PRIVATE_KEY:** - 'private_key=/root/.ssh/id_rsa'
-
-* **SSH_SECURITY_CIDR_BLOCKS:** - 'ssh_security_cidr_blocks=["0.0.0.0/0"]'
