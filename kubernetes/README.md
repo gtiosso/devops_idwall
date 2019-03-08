@@ -10,13 +10,15 @@ Provisionar uma aplicação em um ambiente kubernetes, com as seguintes caracter
 * Validação dos Pods;
 * Acesso a URL da Aplicação via Ingress;
 
-## Requirements
+## Necessário
 
 Você precisará dos seguintes pacotes para realizar o processo de deploy: 
 
 1.  Git (Para clonar este projeto);
 2.  Kubectl (Para realizar o deploy de toda a Stack);
 3.  Cluster Kubernetes (Para orquestrar e gerenciar todos os recursos criados);
+
+---
 
 **Observações**
 
