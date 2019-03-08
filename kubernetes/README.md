@@ -18,6 +18,14 @@ Você precisará dos seguintes pacotes para realizar o processo de deploy:
 2.  Kubectl (Para realizar o deploy de toda a Stack);
 3.  Cluster Kubernetes (Para orquestrar e gerenciar todos os recursos criados);
 
+## OBS
+
+Para acessar a pagina de teste da aplicação via domínio, basta configurar o arquivo hosts da maquina de origem do teste como o **exemplo** a seguir:
+
+*  192.168.1.100 teste-devops.local
+
+_192.168.1.100 - IP do Node do Kubernetes_
+
 
 ## Deploy
 
@@ -44,8 +52,3 @@ _Instruções para o procedimento de Deploy._
 6.  Para destruir o ambiente, execute o seguinte comando:
 
         $ kubectl delete -f main.yaml
-
-**OBS -** Para acessar a pagina de teste da aplicação via domínio, basta configurar o arquivo hosts da maquina de origem do teste como o **exemplo** a seguir:
-*  192.168.1.100 teste-devops.local
-
-_192.168.1.100 - IP do Node do Kubernetes_
