@@ -1,9 +1,15 @@
 # DevOps IDWALL "By: Guilherme Tiosso"
 
-## Objective
+## Objetivo
 
-The main objective of this project, is provisioning entire stack of 2 environments, using IaC (Infrastructure as Code) and Best Pratices of **DevOps SRE (Site Reliability Engineer)**:
+O principal objetivo deste projeto é prover uma solução para os desafios gerados pela empresa [IDWALL](https://idwall.co).
 
-**Environments:**
-* **Terraform (IaC);**
-* **Kubernetes;**
+Prover 2 ambientes, utilizando IaC (Infrastructure as Code) e as melhores práticas em **DevOps SRE (Site Reliability Engineer)**:
+
+**Ambiente:**
+* **[Terraform (IaC)](terraform);**
+* **[Kubernetes](kubernetes);**
+
+## Desafio
+
+[Link](https://github.com/idwall/desafios-devops) para o desafio proposto no processo seletivo para a vaga de DevOps.
