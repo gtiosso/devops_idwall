@@ -20,8 +20,7 @@ Você precisará de uma conta previamente cadastrada e configurada no ambiente A
 Você precisará também dos seguintes pacotes instalados na sua máquina/servidor:
 
 1.  Git (Para clonar este projeto);
-2.  Terraform (Para orquestrar toda a criação do ambiente na AWS);
-*  Você pode realizar o download do Terraform [Aqui.](https://www.terraform.io/downloads.html)
+2.  [Terraform](https://www.terraform.io/downloads.html) (Para orquestrar toda a criação do ambiente na AWS);
 3.  SSH (Para gerar as chaves Pública/Privada para acesso via SSH);
 
 ---
