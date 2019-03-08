@@ -2,65 +2,63 @@
 
 ## Objective
 
-Create a EC2 Instance on AWS with the following configurations:
+Criar uma Instância EC2 na AWS, com as seguintes configurações:
 
-* **Key Pair** - To connect via ssh;
-* **Security Group** - To protect the environment;
-* **Docker** - Installed on EC2 Instance;
-* **Apache** - Running on Docker;
+* **Key Pair** - Para conexões SSH;
+* **Security Group** - Para definição de regras de acesso;
+* **Docker** - Pré-instalado na Instância EC2;
+* **Apache** - Imagem que irá rodar no Docker;
 
+**Security Group - Regras:**        
+* **Regra 1** - Permitir todas as requisições de qualquer origem para a Instância EC2 nas portas 80 e 443;
+* **Regra 2** - Permitir somente _IP_ ou _Range_ específico para conectar na Instância EC2 na porta 22;
 
+## Necessário
 
-**Security Group - Rules:**        
-* **Rule 1** - Permit all requests on port 80 and 443;
-* **Rule 1** - Permit only especifc _IP_ or _Range_ to connect on port 22;
+Você precisará de uma conta previamente cadastrada e configurada no ambiente AWS, contemplando credênciais IAM (Access_key e Secret_key);
 
-## Requirements
+Você precisará também dos seguintes pacotes instalados na sua máquina/servidor:
 
-You need a account on AWS previously created, with a user created on IAM (Access_Key and Secret_Key);
+1.  Git (Para clonar este projeto);
+2.  Terraform (Para orquestrar toda a criação do ambiente na AWS);
+3.  SSH (Para gerar as chaves Pública/Privada para acesso via SSH);
 
-You need the following packages installed on your machine or server: 
-
-1.  Git (To clone this project);
-2.  Terraform (To provisiong entire stack on AWS);
-3.  SSH (To generate public/private key and connect to EC2 Instance);
-
-You can download Terraform [here.](https://www.terraform.io/downloads.html)
+Você pode realizar o download do Terraform [Aqui.](https://www.terraform.io/downloads.html)
 
 ## Deploy
 
-_Instructions to deploy entire Stack on AWS (Compose)._
+_Instruções para o procedimento de deploy/provisionamento do ambiente AWS._
 
-1.  Clone this repository to your machine:
+1.  Clone este projeto para sua máquina/servidor:
 
         $ git clone https://github.com/gtiosso/devops_idwall.git [PROJECT_FOLDER]
 
-2.  Create SSH Public and Private Keys **(OBS: Don't need to input a passphrase)**:
+2.  Crie as chaves Pública/Privada para o SSH **(OBS: Por não ser ambiente produtivo, não é necessário inserir a passphrase)**:
 
         $ ssh-keygen
 
-3.  Inside of terraform folder, run the following commands:
+3.  Dentro da pasta terraform, execute os seguintes comando:
 
         $ terraform init
 
         $ terraform plan -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
 
-4.  If "Plan" command returns "OK", than apply your environment:
+4.  Após a execução do "Plan" e o resultado for "OK", aplique o provisionamento:
 
         $ terraform apply -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
        
-5.  Access Apache (Docker) WebPage:
+5.  Valide a aplicação (Apache) rodando no Docker:
 
         http://AWS IP
         https://AWS IP
         
-6.  To destroy your environment:
+6.  Para destruir o ambiente, execute o comando abaixo:
 
         terraform destroy -auto-approve -var 'region=PUT A REGION' -var 'access_key=PUT YOUR ACCESS_KEY' -var 'secret_key=PUT YOUR SECRET_KEY' -var 'public_key=PUT YOUR SSH PUBLIC_KEY' -var 'private_key=PUT YOUR SSH PRIVATE_KEY' -var 'ssh_security_cidr_blocks=PUT THE IP or RANGE TO PERMIT CONNECT VIA SSH'
 
-**_OBS: The follwing parameters are required_**
+**_OBS: Os parâmetros abaixo são necessários para o funcionamento correto do deploy_**
 
-**EXAMPLE**
+**EXEMPLO**
 
 * **REGION:** - 'region=us-east-1'
 
